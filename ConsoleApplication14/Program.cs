@@ -8,45 +8,53 @@ namespace ConsoleApplication14
 {
     class Program
     {
-       
+
         static void Main(string[] args)
         {
             string continuee;
             do
             {
 
-                string word;
+                // string word;
                 Console.WriteLine("welcome to the pig latin translator!  enter a line to be translated");
-
-                word = Console.ReadLine();
-                word = word.ToLower();
-                string v = "aeiou";
-                if (v.Contains(word[0]))
+                string input = Console.ReadLine();
+                string[] ar = input.Split(' ');
+                foreach (string word in ar)
                 {
-                    Console.WriteLine(word + "way");
-                    Console.WriteLine("do you want to translate other line(yes/no)");
-                    continuee = Console.ReadLine();
-                }
-                else
-                {
-                    string a;
 
-                    char[] v1 = { 'a', 'e', 'i', 'o', 'u' };
-                    int i = word.IndexOfAny(v1);
-                    a = word.Substring(i);
-                    word = word.Remove(word.IndexOf(a));
-                    word = a + word;
-                    Console.WriteLine(word + "ay");
-                    Console.WriteLine("do you want to translate other line(yes/no)");
-                    continuee = Console.ReadLine();
+                    string w = "";
+
+                    //word = Console.ReadLine();
+
+                    string v = "aeiou";
+                    if (v.Contains(word.ToLower()[0]))
+                    {
+                        Console.WriteLine(word + "way");
+
+                    }
+                    else
+                    {
+                        string a;
+
+                        char[] v1 = { 'a', 'e', 'i', 'o', 'u' };
+                        int i = word.IndexOfAny(v1);
+                        a = word.Substring(i);
+                        w = word.Remove(word.IndexOf(a));
+                        w = a + w;
+                        Console.WriteLine(w + "ay");
+                     //   Console.WriteLine("do you want to translate other line(yes/no)");
+                       // continuee = Console.ReadLine();
+                    }
                 }
+                Console.WriteLine("do you want to translate other line(yes/no)");
+                continuee = Console.ReadLine();
             }
             while (continuee == "yes");
+            
 
-    {
-
-            }
+        }
+            
 
         }
     }
-}
+
